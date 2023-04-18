@@ -12,16 +12,19 @@
   #design{
     overflow-x: auto;
   }
+  #green{
+    background-color: rgb(113, 218, 113);
+  }
 </style>
 <body class="bg-dark">
     <section class="container shadow p-4 rounded bg-white mt-3">
-        <div class="container bg-success d-flex justify-content-center  rounded">
-            <h2> Generate Recharge Card Pin</h2>
+        <div class="container d-flex justify-content-center rounded align-middle p-2" id="green">
+            <h3> Generate Recharge Card Pin</h3>
         </div>
         <div class="container text-center mt-3">
             <div class="row">
               <div class="col">
-                <h3>Choose Network</h3>
+                <h4>Choose Network</h4>
                 <select class="form-select" aria-label="Default select example" id="network" onclick="change()">
                     <option selected>Select Network</option>
                     <option value="MTN">MTN</option>
@@ -29,9 +32,9 @@
                     <option value="AIRTEL">AIRTEL</option>
                     <option value="9-MOBILE">9-MOBILE</option>
                   </select>
-                  <h3 class="mt-4">Enter Amount</h3>
+                  <h4 class="mt-4">Enter Amount</h4>
                   <input type="" class="form-control" id="amount" placeholder="Amount">
-                  <h3 class="mt-4">Generate Pin</h3>
+                  <h4 class="mt-4">Generate Pin</h4>
                   <input type="" class="form-control" id="pin" placeholder="Pin" disabled>
                   <div class="mt-4 d-flex gap-3">
                     <button type="button" class="btn btn-primary" onclick="getRandom()">Generate Pin</button>

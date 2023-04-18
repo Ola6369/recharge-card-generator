@@ -61,8 +61,6 @@ function savePin() {
         amount.value=''
         pin.value=''
         })   
-      
-       
 }
 
 function del(index) {
@@ -73,6 +71,7 @@ function del(index) {
 }
 
 function rechargeCard() {
+
     let seen = false;
      card.forEach(load=>{
         console.log(load);
@@ -94,7 +93,7 @@ function rechargeCard() {
         console.log('pin exist');
      }else{
         alert('invalid')
-    }
+    }   
      
 }
 
