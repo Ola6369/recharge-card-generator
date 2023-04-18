@@ -55,12 +55,14 @@ function savePin() {
             <td>${element.validity==false?`<span>VALID</span>`:`<span>INVALID</span>`}</td>
             <td>${element.m}</td>
             <td><button type="button" class="btn btn-dark" onclick="del(${index})">delete</button></td>
-        </tr>`       
-        })   
-
+        </tr>`    
+        
+        inputpin.value = element.recharge;
         amount.value=''
         pin.value=''
-
+        })   
+      
+       
 }
 
 function del(index) {
