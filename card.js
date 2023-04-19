@@ -78,8 +78,7 @@ function rechargeCard() {
 
     let seen = false;
      card.forEach(load=>{
-        console.log(load);
-
+        
         if ((inputpin.value).trim() == load.recharge) {
             if (load.validity == 'invalid') {
                 alert('pin has been used')
@@ -97,5 +96,7 @@ function rechargeCard() {
         console.log('pin exist');
      }else{
         alert('invalid card')
-    }       
+    }     
+    
+    inputpin.value =''
 }
