@@ -34,6 +34,10 @@ function getRandom() {
 
     let tabEnter = {Network:network.value, Amount:amount.value,recharge:recharge,validity:false ,m :(day+'/'+month+'/'+year)};  
     card.push(tabEnter);
+
+    if (amount.value=="") {
+        pin.value=''
+    }    
 }
 function change() {
     amount.value=''
@@ -58,9 +62,9 @@ function savePin() {
         </tr>`    
         
         inputpin.value = element.recharge;
+        })   
         amount.value=''
         pin.value=''
-        })   
 }
 
 function del(index) {
@@ -92,9 +96,6 @@ function rechargeCard() {
         // alert('pin has been used')
         console.log('pin exist');
      }else{
-        alert('invalid')
-    }   
-     
+        alert('invalid card')
+    }       
 }
-
-
