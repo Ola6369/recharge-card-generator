@@ -17,6 +17,21 @@
   }
 </style>
 <body>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content ">
+      <div class="modal-body fs-3 text-success">
+        Pin Successfully Saved
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div>
+  
     <section class="container shadow p-2 rounded bg-dark mt-3">
       <div class="container bg-white p-4 shadow rounded">
         <div class="container d-flex justify-content-center rounded align-middle p-2" id="green">
@@ -39,7 +54,7 @@
                   <input type="" class="form-control" id="pin" placeholder="Pin" disabled>
                   <div class="mt-4 d-flex gap-3 justify-content-center">
                     <button type="button" class="btn btn-primary" onclick="getRandom()">Generate Pin</button>
-                    <button type="button" class="btn btn-secondary" onclick="savePin()">Save Pin</button>
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="savePin()">Save Pin</button>
             </div>
               </div>
               <div class="col-12 col-md-6 col-lg-6">
