@@ -10,28 +10,50 @@ let day = date.getDate();
 let month = date.getMonth();
 let year = date.getFullYear();
 
-let recharge= {
- MTN:'*555*',
- GLO:'*123*',
- AIRTEL:'*126*',
- MOBILE:'*222*'
-};
+
 
 // to generate pin
 function get() {
     return Math.floor(Math.random() *100000000000)
 }
 
+
 //to display generated pin and network
 function getRandom() {
+    if (network.value=='network.value') {
+        display.innerHTML=''
+        return
+    }else if(amount.value == 'amount.value'){
+        display.innerHTML=''
+        return
+    }
+
     pin.value=get()
 
- if (amount.value=="") {
-    pin.value=''
-}    
-
-    let tabEnter = {Network:network.value, Amount:amount.value,recharge:`${recharge[network.value]}${pin.value}#`,validity:false ,m :(day+'/'+month+'/'+year)};  
+    // to show recharge pin for all network
+    let recharge;
+if (network.value == 'MTN') {
+    recharge = `*555*${pin.value}#`
+}
+else if (network.value=='GLO') {
+    recharge= `*123*${pin.value}#`
+}
+else if (network.value=='AIRTEL') {
+    recharge =`126${pin.value}#`
+}
+else if (network.value == '9-MOBILE') {
+    recharge= `*222*${pin.value}#`
+}
+ 
+    //all the element in array
+    let tabEnter = {Network:network.value, Amount:amount.value,pin:pin.value,validity:false ,m :(day+'/'+month+'/'+year),recharge:recharge};  
     card.push(tabEnter);
+
+    if (amount.value=="") {
+        pin.value=''
+    }    
+    
+
 }
 
 function change() {
@@ -41,7 +63,7 @@ function change() {
 }
 
 //to save pin inside table
-function savePin() {
+function savePin() {    
     amount.value=''
     pin.value=''
     display.innerHTML=''
@@ -57,14 +79,29 @@ function savePin() {
             <td><button type="button" class="btn btn-dark" onclick="del(${index})">delete</button></td>
         </tr>`    
         
-        inputpin.value = element.recharge;
-        })   
-       
+        inputpin.value = element.recharge;       
+     })   
+     
+    //  if (amount.value == '') {
+    //     alert('fill the inputs above')
+    //     return
+    //  }
+     localSave = localStorage.setItem('saveData',JSON.stringify(card));
 }
+
+getData = localStorage.getItem('saveData');
+
+function storePin(getdata) {
+    if (getdata) {
+        card = JSON.parse(getdata)
+        savePin()
+    }
+}
+
+storePin()
 
 function del(index) {
     card.splice(index,1)
-    // display.innerHTML=''
     savePin()
 }
 
@@ -89,6 +126,5 @@ function rechargeCard() {
         console.log('pin exist');
      }else{
         alert('invalid card')
-    }     
-    
+    }         
 }
