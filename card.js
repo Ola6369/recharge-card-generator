@@ -86,14 +86,14 @@ function savePin() {
     //     alert('fill the inputs above')
     //     return
     //  }
-     localSave = localStorage.setItem('saveData',JSON.stringify(card));
+     localSave = localStorage.setItem('pinGen',JSON.stringify(card));
 }
 
-getData = localStorage.getItem('saveData');
+getData = localStorage.getItem('pinGen');
 
-function storePin(getdata) {
-    if (getdata) {
-        card = JSON.parse(getdata)
+function storePin() {
+    if (getData) {
+        card = JSON.parse(getData)
         savePin()
     }
 }
